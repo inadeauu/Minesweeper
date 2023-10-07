@@ -1,23 +1,23 @@
 type SliderProps = {
-  value: number
-  setValue: React.Dispatch<React.SetStateAction<number>>
-  minValue: number
-  maxValue: number
-}
+  val: number
+  minVal: number
+  maxVal: number
+} & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>
 
-const Slider = ({ value, setValue, minValue, maxValue }: SliderProps) => {
+const Slider = ({ val, minVal, maxVal }: SliderProps) => {
   return (
     <div className="flex gap-1">
       <input
         type="range"
-        value={value}
-        min={minValue}
-        max={maxValue}
-        onChange={(e) => setValue(e.target.valueAsNumber)}
+        min={minVal}
+        max={maxVal}
         className="slider"
         style={
           {
-            "--progress": `${(value / maxValue) * 100 - 1}%`,
+            "--progress": `${(val / maxVal) * 100 - 1}%`,
           } as React.CSSProperties
         }
       />

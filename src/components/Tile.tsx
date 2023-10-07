@@ -7,7 +7,7 @@ type TileProps = {
 
 const Tile = ({ tile }: TileProps) => {
   return (
-    <div className="w-[25px] h-[25px]">
+    <div className="w-[25px] h-[25px] cursor-pointer border-[.5px] border-black">
       <img src={Cover} />
     </div>
   )
