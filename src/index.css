@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border m-0 p-0;
+  }
+
+  body,
+  html {
+    @apply h-full;
+  }
+}
+
+@layer components {
+  .slider {
+    --progress: 50%;
+    @apply w-[200px] bg-transparent appearance-none cursor-pointer;
+  }
+
+  .slider::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      90deg,
+      #5484ff 0%,
+      #5484ff var(--progress),
+      #d1d5db var(--progress),
+      #d1d5db 100%
+    );
+    @apply h-[14px] rounded-md;
+  }
+
+  .slider::-moz-range-track {
+    @apply bg-gray-300 h-[14px] rounded-md;
+  }
+
+  .slider::-webkit-slider-thumb {
+    border: 2.5px solid #5484ff;
+    @apply appearance-none h-[22px] w-[22px] rounded-full bg-white mt-[-4px];
+  }
+
+  .slider::-moz-range-thumb {
+    border: 2.5px solid #5484ff;
+    @apply appearance-none h-[18px] w-[18px] rounded-full bg-white;
+  }
+
+  .slider::-moz-range-progress {
+    @apply h-[14px] rounded-md bg-[#5484ff];
+  }
+}
