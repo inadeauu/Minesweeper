@@ -1,24 +1,13 @@
 type SliderProps = {
-  label: string
   value: number
   setValue: React.Dispatch<React.SetStateAction<number>>
   minValue: number
   maxValue: number
 }
 
-const Slider = ({
-  label,
-  value,
-  setValue,
-  minValue,
-  maxValue,
-}: SliderProps) => {
+const Slider = ({ value, setValue, minValue, maxValue }: SliderProps) => {
   return (
-    <div className="flex flex-col gap-1">
-      <div>
-        <span>{label}: </span>
-        <span>{value}</span>
-      </div>
+    <div className="flex gap-1">
       <input
         type="range"
         value={value}
