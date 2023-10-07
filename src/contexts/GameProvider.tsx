@@ -31,7 +31,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
   const [mineAmount, setMineAmount] = useState(10)
 
   const [board, setBoard] = useState<Tile[][]>(
-    initializeBoard(boardWidth, boardHeight)
+    initializeBoard(boardWidth, boardHeight, mineAmount)
   )
 
   return (

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useGameContext } from "../utils/useGameContext"
 import { initializeBoard } from "../utils/gameLogic"
+import { progress } from "../utils/helpers"
 
 const GameMenu = () => {
   const gameInfo = useGameContext()
@@ -19,7 +20,7 @@ const GameMenu = () => {
     gameInfo.setBoardWidth(width)
     gameInfo.setBoardHeight(height)
     gameInfo.setMineAmount(mines)
-    gameInfo.setBoard(initializeBoard(width, height))
+    gameInfo.setBoard(initializeBoard(width, height, mines))
   }
 
   return (
@@ -39,7 +40,11 @@ const GameMenu = () => {
             }}
             style={
               {
-                "--progress": `${(width / gameInfo.MAXDIM) * 100 - 1}%`,
+                "--progress": `${progress(
+                  width,
+                  gameInfo.MINDIM,
+                  gameInfo.MAXDIM
+                )}%`,
               } as React.CSSProperties
             }
           />
@@ -58,7 +63,11 @@ const GameMenu = () => {
             }}
             style={
               {
-                "--progress": `${(height / gameInfo.MAXDIM) * 100 - 1}%`,
+                "--progress": `${progress(
+                  height,
+                  gameInfo.MINDIM,
+                  gameInfo.MAXDIM
+                )}%`,
               } as React.CSSProperties
             }
           />
@@ -76,7 +85,11 @@ const GameMenu = () => {
             }}
             style={
               {
-                "--progress": `${(mines / (width * height - 1)) * 100 - 1}%`,
+                "--progress": `${progress(
+                  mines,
+                  gameInfo.MINMINES,
+                  width * height - 1
+                )}%`,
               } as React.CSSProperties
             }
           />
