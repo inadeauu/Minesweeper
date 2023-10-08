@@ -1,14 +1,16 @@
 import React, { createContext, useState } from "react"
 import { Tile, initializeBoard } from "../utils/gameLogic"
+import { GameState } from "../utils/gameLogic"
 
 type GameProviderProps = {
   children: React.ReactNode
 }
-
 type GameContext = {
   MINDIM: number
   MAXDIM: number
   MINMINES: 5
+  gameState: GameState
+  setGameState: React.Dispatch<React.SetStateAction<GameState>>
   board: Tile[][]
   setBoard: React.Dispatch<React.SetStateAction<Tile[][]>>
   boardWidth: number
@@ -26,6 +28,7 @@ const GameProvider = ({ children }: GameProviderProps) => {
   const MAXDIM = 50
   const MINMINES = 5
 
+  const [gameState, setGameState] = useState<GameState>(GameState.Idol)
   const [boardWidth, setBoardWidth] = useState(10)
   const [boardHeight, setBoardHeight] = useState(10)
   const [mineAmount, setMineAmount] = useState(10)
@@ -40,6 +43,8 @@ const GameProvider = ({ children }: GameProviderProps) => {
         MINDIM,
         MAXDIM,
         MINMINES,
+        gameState,
+        setGameState,
         board,
         setBoard,
         boardWidth,

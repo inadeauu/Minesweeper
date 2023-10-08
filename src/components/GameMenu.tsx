@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useGameContext } from "../utils/useGameContext"
-import { initializeBoard } from "../utils/gameLogic"
+import { GameState, initializeBoard } from "../utils/gameLogic"
 import { progress } from "../utils/helpers"
 
 const GameMenu = () => {
@@ -17,6 +17,7 @@ const GameMenu = () => {
   }
 
   const createNewBoard = () => {
+    gameInfo.setGameState(GameState.Playing)
     gameInfo.setBoardWidth(width)
     gameInfo.setBoardHeight(height)
     gameInfo.setMineAmount(mines)
