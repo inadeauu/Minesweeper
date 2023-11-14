@@ -12,7 +12,7 @@
 
 <h2>Demo</h2>
 <p>Click here to view a demo of the website.</p>
-https://github.com/inadeauu/minesweeper/assets/123025115/3cf37a3b-113e-4d12-9ec3-343befd4e11f
+https://github.com/inadeauu/minesweeper/assets/123025115/84b284c9-80e0-40d7-a54b-3da29cd5af22
 
 <h2>Local Install Instructions</h2>
 <p>To locally install and run this project on your machine:</p>
